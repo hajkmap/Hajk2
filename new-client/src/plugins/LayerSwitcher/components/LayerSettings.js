@@ -47,7 +47,7 @@ class LayerSettings extends React.PureComponent {
       opacityValue: props.layer.get("opacity"),
       legend: layerInfo.legend,
     };
-    props.layer.on("change:opacity", this.updateOpacity);
+    props.layer.on?.("change:opacity", this.updateOpacity);
   }
 
   updateOpacity = (e) => {
@@ -132,10 +132,7 @@ class LayerSettings extends React.PureComponent {
   renderLegendImage() {
     var index = this.props.index ? this.props.index : 0;
 
-    var src =
-      this.state.legend[index] && this.state.legend[index].url
-        ? this.state.legend[index].url
-        : "";
+    var src = this.state.legend?.[index]?.url;
     return src ? (
       <div>
         <img max-width="250px" alt="Teckenförklaring" src={src} />
